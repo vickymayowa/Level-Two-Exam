@@ -42,13 +42,14 @@
     let userIndex = 0
     addProduct.addEventListener("click",()=>{
         // Setup  information to save
-       let coverImage = myImage.files[0]
-       let details = {
-          title : productName.value,
-          amount : productAmount.value,
-          category : productCategory.value,
-          coverImageName : coverImage.name,
-       }
+            let coverImage = myImage.files[0];
+            let details = {
+            title: productName.value,
+            amount: productAmount.value,
+            category: productCategory.value,
+            coverImageName: coverImage.name,
+            };
+
         swal({
         title: "Uploaded SuccessFully",
         text: "Your Product Has been Uploaded",
@@ -58,27 +59,25 @@
       console.log(details)
 
       //Save into the database
-      let dbRef = ref(db,`productStore/${userIndex}`)
-      set(dbRef,details)
+      let dbRef = ref(db, `productStore/${userIndex}`);
+      set(dbRef, details);
+
       setTimeout(() => {
         window.location.href="index.html"
       },3000);
       //Upload the file to firebase storage
-      //  let songRef = stRef(storage,`allsongs`)
-       let imageRef = stRef(storage,`songstore/${coverImage.name}`)
-       uploadBytesResumable(imageRef,coverImage)
+      let imageRef = stRef(storage, `songStore/${coverImage.name}`);
+      uploadBytesResumable(imageRef, coverImage)
     })
-
-    onValue(ref(db,"productstore"),(snapshot)=>{
-      console.log(snapshot.val())
-      allProduct = snapshot.val()
-      if(allProduct){
-        userIndex = allProduct.length
-      }else{
-        userIndex = 0
-      }
-    })
-
+    onValue(ref(db, "productStore"), (snapshot) => {
+        console.log(snapshot.val());
+        allProduct = snapshot.val();
+        if (allProduct) {
+            userIndex = allProduct.length;
+        } else {
+            userIndex = 0;
+        }
+});
 
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
