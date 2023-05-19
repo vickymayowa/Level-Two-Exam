@@ -32,7 +32,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
         import {getDatabase,ref,set,onValue} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
-        import {getDownloadURL, ref as stRef,getStorage} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-storage.js";
+        import {getStorage,ref as stRef,getDownloadURL} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-storage.js";
         const firebaseConfig = {
         apiKey: "AIzaSyB4DVUXdPIziaMaOrzrEtTjYZTkNOftaP4",
         authDomain: "level-two-exam.firebaseapp.com",
@@ -55,14 +55,13 @@
                 let imageRef = stRef(storage,`productStore/${eachProduct.coverImageName}`)
                 getDownloadURL(imageRef).then((url)=>{
                     console.log(url)
-                })
-                disp.innerHTML +=
-                `
-                <section class="product-list" id="list">
-                    <div class="container text-center col-sm-12">
-                      <div class="row  row-cols-md-2 row-cols-lg-3 g-2 px-5">
-                        <div class="card mt-4 ms-5" style="width: 18rem;">
-                        <img src='${url}' width='40' height='40' class="card-img-top" alt="...">
+                    disp.innerHTML +=
+                    `
+                    <section class="product-list" id="list">
+                      <div class="container text-center col-sm-12">
+                        <div class="row  row-cols-md-2 row-cols-lg-3 g-2 px-5">
+                          <div class="card mt-4 ms-5" style="width: 18rem;">
+                            <img src='${url}' width='40' height='40' class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title text-center">Product Name:<span>${eachProduct.title}</span></h5>
                           <h5 class="card-title text-center">Product Amount:<span>${eachProduct.artist}</span></h5>
@@ -70,8 +69,9 @@
                           <button class="btn btn-primary" onclick="edit()">Edit Product</button>
                           <button class="btn btn-danger" onclick="Delete()">Delete Product</button>
                         </div>
-                    </div>  
-                `
+                        </div>  
+                        `
+                      })
 
               })
               
