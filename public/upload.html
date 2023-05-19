@@ -19,7 +19,7 @@
     <label for="">Upload Product Image
       <input type="file" accept="image/*" class="form-control px-3" id="myImage">
     </label>
-    <button class="btn btn-info col-sm-12 mx-auto px-5" id="addProduct">Upload Product</button>
+    <button class="btn btn-info col-sm-12 mx-auto px-5 mt-3" id="addProduct">Upload Product</button>
     <a href="./index.html">Go to HomePage</a>
   </div>
   <script type="module">
@@ -71,9 +71,9 @@
     })
     onValue(ref(db, "productStore"), (snapshot) => {
         console.log(snapshot.val());
-        allProduct = snapshot.val();
-        if (allProduct) {
-            userIndex = allProduct.length;
+        let data = snapshot.val();
+        if (data) {
+            userIndex = data.length;
         } else {
             userIndex = 0;
         }
