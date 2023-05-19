@@ -48,7 +48,7 @@
            
             let allProduct = []
         
-            onValue(ref(db,"audiostore"),(snapshot)=>{
+            onValue(ref(db,"productStore"),(snapshot)=>{
               console.log(snapshot.val())
               allProduct = snapshot.val()
               allProduct.map((eachSong)=>{
