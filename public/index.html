@@ -16,10 +16,7 @@
 </div>
   <div class="row row-cols-1 row-cols-lg-12 d-lg-flex d  justify-content-center">
   <div class="fw-lighter text-center fs-5">Ecommerce Application</div>
-
-    <section class="playlist">
-        <div class="row  row-cols-md-2 row-cols-lg-3 g-2 px-5" id="disp">
-  
+        <div class="row row-cols-md-2 row-cols-lg-3 g-2 px-5" id="display">
   </div>
 </div>
 </section>
@@ -55,7 +52,7 @@
                 let imageRef = stRef(storage,`productStore/${eachProduct.coverImageName}`)
                 getDownloadURL(imageRef).then((url)=>{
                     console.log(url)
-                    disp.innerHTML +=
+                    display.innerHTML +=
                     `
                     <section class="product-list" id="list">
                       <div class="container text-center col-sm-12">
